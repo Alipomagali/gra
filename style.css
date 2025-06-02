@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;600&display=swap');
+
+body {
+  font-family: 'Rubik', sans-serif;
+  background-image: url('https://img.freepik.com/premium-wektory/pikselowe-tlo-nieba-z-chmurami-zachmurzone-niebo-wektor-dla-8-bitowej-gry-na-bialym-tle_360488-614.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+  padding: 30px 15px;
+  transition: background-image 0.5s ease, color 0.5s ease;
+  color: #333;
+}
+
+body.hard {
+  background-image: url('https://img.freepik.com/darmowe-wektory/piekielna-ciemna-jaskinia-ze-scena-lawy_1308-50854.jpg?semt=ais_hybrid&w=740');
+  color: white;
+}
+
+h1 {
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+  color: inherit;
+}
+
+#difficulty-selector {
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+  color: inherit;
+}
+
+#difficulty-selector label {
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+#start-btn {
+  padding: 12px 24px;
+  font-size: 1rem;
+  border: none;
+  background-color: #4caf50;
+  color: white;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+#start-btn:hover {
+  background-color: #45a049;
+  transform: scale(1.05);
+}
+
+#status {
+  margin-top: 10px;
+  font-size: 1.1rem;
+  color: inherit;
+  min-height: 1.5em;
+}
+
+#game-board {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(100px, 150px));
+  grid-gap: 20px;
+  margin-top: 30px;
+}
+
+.color-button {
+  width: 100%;
+  padding-top: 100%;
+  position: relative;
+  border: none;
+  border-radius: 20px;
+  opacity: 0.7;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: opacity 0.3s, transform 0.2s;
+  cursor: pointer;
+}
+
+.color-button::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  border-radius: 20px;
+}
+
+.color-button[data-color="red"] {
+  background: linear-gradient(to bottom, #ff4e50, #f44336);
+}
+
+.color-button[data-color="blue"] {
+  background: linear-gradient(to bottom, #2193b0, #6dd5ed);
+}
+
+.color-button[data-color="green"] {
+  background: linear-gradient(to bottom, #56ab2f, #a8e063);
+}
+
+.color-button[data-color="yellow"] {
+  background: linear-gradient(to bottom, #fbd72b, #f9484a);
+}
+
+.color-button.active {
+  opacity: 1;
+  transform: scale(1.08);
+}
+
+#error-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+#error-overlay.hidden {
+  display: none;
+}
+
+#error-message {
+  background: white;
+  padding: 30px 40px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  font-family: 'Rubik', sans-serif;
+  color: #333;
+}
+
+body.hard #error-message {
+  color: white;
+  background: rgba(50, 50, 50, 0.9);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.8);
+}
+
+#error-message h2 {
+  margin: 0 0 10px;
+  font-size: 2.5rem;
+  color: #d32f2f;
+}
+
+body.hard #error-message h2 {
+  color: #ff6666;
+}
+
+#error-message p {
+  margin: 0 0 20px;
+  font-size: 1.2rem;
+}
+
+#error-message button {
+  padding: 10px 25px;
+  font-size: 1rem;
+  background-color: #4caf50;
+  border: none;
+  color: white;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#error-message button:hover {
+  background-color: #45a049;
+}
